@@ -21,7 +21,7 @@ app.get('/profile-picture', function (req, res) {
 });
 
 // use when starting application locally
-let mongoUrlLocal = "mongodb://admin:password@localhost:27017";
+let mongoUrlLocal = "mongodb://admin:password@mongodb:27017";
 
 // use when starting application as docker container
 let mongoUrlDocker = "mongodb://admin:password@mongodb";
@@ -29,9 +29,7 @@ let mongoUrlDocker = "mongodb://admin:password@mongodb";
 app.post('/update-profile', function (req, res) {
   let userObj = req.body;
 
-  const client = new MongoClient(mongoUrlLocal, {useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true});
-
-  client.connect(mongoUrlLocal, function (err, client) {
+  MongoClient.connect(mongoUrlDocker, function (err, client) {
     if (err) throw err;
 
     let db = client.db('my-db');
@@ -53,7 +51,7 @@ app.post('/update-profile', function (req, res) {
 app.get('/get-profile', function (req, res) {
   let response = {};
   // Connect to the db
-  MongoClient.connect(mongoUrlLocal, function (err, client) {
+  MongoClient.connect(mongoUrlDocker, function (err, client) {
     if (err) throw err;
 
     let db = client.db('my-db');
