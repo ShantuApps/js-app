@@ -7,8 +7,8 @@ networks:
 
 services:
   js-app:
-    #image: shantu/js-app:1.0
-    image: 372951435894.dkr.ecr.us-east-2.amazonaws.com/js-app:1.1
+    #image: js-app:latest
+    image: 372951435894.dkr.ecr.us-east-2.amazonaws.com/js-app:latest
     ports: 
       - 3000:3000
     networks:

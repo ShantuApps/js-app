@@ -1,7 +1,20 @@
-Docker image into aws ECR 
-
-(run it in power shell)
+17.01.2021
+image is hosted in aws ecr by following commands
+ - Docker image into aws ECR  (run it in terminal / power shell)
+___________
 aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin 372951435894.dkr.ecr.us-east-2.amazonaws.com
 docker build -t js-app .
 docker tag js-app 372951435894.dkr.ecr.us-east-2.amazonaws.com/js-app:latest
 docker push 372951435894.dkr.ecr.us-east-2.amazonaws.com/js-app:latest
+
+Run in this pc
+--------------
+PS C:\Shantu\work\docker\js-app> docker-compose up
+
+Additinal image repository (not in use)
+----------------------
+https://hub.docker.com/repository/docker/shantu/js-app
+
+
+
+
