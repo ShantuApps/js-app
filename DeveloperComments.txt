@@ -7,14 +7,34 @@ docker build -t js-app .
 docker tag js-app 372951435894.dkr.ecr.us-east-2.amazonaws.com/js-app:latest
 docker push 372951435894.dkr.ecr.us-east-2.amazonaws.com/js-app:latest
 
+---
+docker tag js-app shantu/js-app:1.0
+docker push shantu/js-app:1.0
+--
+aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/l5m9v9y1
+docker build -t js-app .
+docker tag js-app:latest public.ecr.aws/l5m9v9y1/js-app:latest
+docker push public.ecr.aws/l5m9v9y1/js-app:latest
+
+----
+docker hub
+
+
+
+
 Run in this pc
 --------------
 PS C:\Shantu\work\docker\js-app> docker-compose up
+
 
 Additinal image repository (not in use)
 ----------------------
 https://hub.docker.com/repository/docker/shantu/js-app
 
+
+source code repository
+----------------------
+https://github.com/shantukl/js-app
 
 
 
